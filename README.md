@@ -23,7 +23,7 @@ $geo->setSecret( 'XXXXXXX' );
 
 $ipinfo = $geo->get( $ip );
 
-$city = $ipinfo[ 'Location' ][ 'CityData'][ 'city' ];
+$city = $ipinfo->Location->CityData->city;
 
 ```
 
