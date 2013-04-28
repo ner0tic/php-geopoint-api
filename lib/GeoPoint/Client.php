@@ -54,7 +54,6 @@ class Client extends BaseClient
      */
     private function generateSig()
     {
-        var_dump($this->getApiKey());die('---');
         if( is_null( $this->getApiKey() ) )
             throw new \Exception( 'Must supply an api key' );
         if( is_null( $this->getSecret() ) )
@@ -71,7 +70,7 @@ class Client extends BaseClient
     public function setApiKey( $key )
     {
         $this->key = $key;
-        
+        var_dump($this->key.' :: '.$key);die('---');
         return $this;
     }
     
