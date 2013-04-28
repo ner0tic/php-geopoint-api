@@ -9,13 +9,13 @@ class Client extends BaseClient
      *
      * @var string $key 
      */
-    protected $key = null;
+    protected $key;
     
     /**
      *
      * @var string $secret 
      */
-    protected $secret = null;
+    protected $secret;
     
     /**
      * 
