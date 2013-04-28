@@ -97,6 +97,15 @@ class Client extends BaseClient
     
     /**
      * 
+     * @return string
+     */
+    public function getSecret()
+    {
+        return $this->secret;
+    }
+    
+    /**
+     * 
      * @param string $path
      * @param array $parameters
      * @param array $requestOptions
@@ -109,7 +118,7 @@ class Client extends BaseClient
                 array(
                     'format'    =>  'json',
                     'sig'       =>  $this->generateSig(),
-                    'apikey'    =>  $this->key
+                    'apikey'    =>  $this->getApiKey()
         ) );
         
         return parent::get( $path, $parameters, $requestOptions );
