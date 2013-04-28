@@ -56,7 +56,7 @@ class Client extends BaseClient
     {
         if( !$this->key )
             throw new \Exception( 'Must supply an api key' );
-        if( !$this->secrect )
+        if( !$this->secret )
             throw new \Exception ( 'Must supply an api secret' );
         
         return md5( $this->login, $this->secret, gmdate( 'U' ) );
