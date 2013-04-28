@@ -1,0 +1,23 @@
+{
+    "name": "ner0tic/php-geopoint-api",
+    "type": "library",
+    "description": "GeoPoint API v1 client",
+    "homepage": "https://github.com/ner0tic/php-geopoint-api",
+    "keywords": ["geo location", "ip address", "geopoint"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Durost",
+            "homepage": "http://daviddurost.net",
+            "email":  "david.durost@gmail.com"
+        }
+    ],
+    "require": {
+        "php":                ">=5.3.2",
+        "ner0tic/php-api-core": "*"
+    },
+    "autoload": {
+        "psr-0": { "GeoPoint\\": "lib/" }
+    },
+    "minimum-stability": "dev"
+}
