@@ -76,6 +76,15 @@ class Client extends BaseClient
     
     /**
      * 
+     * @return string $key
+     */
+    public function getApiKey()
+    {
+        return $this->key;
+    }
+    
+    /**
+     * 
      * @param string $secret
      * @return \GeoPoint\Client
      */
