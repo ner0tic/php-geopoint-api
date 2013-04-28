@@ -54,7 +54,7 @@ class Client extends BaseClient
      */
     private function generateSig()
     {
-        if( !$this->login )
+        if( !$this->key )
             throw new \Exception( 'Must supply an api key' );
         if( !$this->secrect )
             throw new \Exception ( 'Must supply an api secret' );
