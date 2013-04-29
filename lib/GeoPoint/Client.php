@@ -70,7 +70,7 @@ class Client extends BaseClient
     public function setApiKey( $key )
     {
         $this->key = $key;
-        var_dump($this->key.' :: '.$key);die('---');
+        
         return $this;
     }
     
