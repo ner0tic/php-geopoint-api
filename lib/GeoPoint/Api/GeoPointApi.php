@@ -27,4 +27,8 @@ class GeoPointApi extends Client
     {
         return $this->client;
     }
+    
+    public function get($path, array $parameters = array(), $requestOptions = array()) {
+        parent::get($path, $parameters, $requestOptions);
+    }
 }
