@@ -19,7 +19,7 @@ class GeoPointApi extends Client
     {
         $this->client = $client instanceof Client ? $client : new Client();
 
-        $this->client->setUrl( ':protocolapi.neustar.biz/ipi/std/:path' );
+        $this->client->setUrl( ':protocol://api.neustar.biz/ipi/std/:path' );
         $this->client->setOption( 'protocol', 'http' );                       
     }    
     
