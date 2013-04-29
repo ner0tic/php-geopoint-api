@@ -59,7 +59,7 @@ class Client extends BaseClient
         if( is_null( $this->getSecret() ) )
             throw new \Exception ( 'Must supply an api secret' );
         
-        return md5( $this->getApiKey(), $this->getSecret(), gmdate( 'U' ) );
+        return md5( $this->getApiKey() . $this->getSecret() . gmdate( 'U' ) );
     }
     
     /**
