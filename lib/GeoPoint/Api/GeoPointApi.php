@@ -19,13 +19,23 @@ class GeoPointApi extends Client
     {
         $this->client = $client instanceof Client ? $client : new Client();
 
-        $this->client->setUrl( ':protocol://api.neustar.biz/ipi/std/v1/:path' );
-        $this->client->setOption( 'protocol', 'http' );                       
+        $this->setUrl( ':protocol://api.neustar.biz/ipi/std/v1/:path' );
+        $this->setOption( 'protocol', 'http' );                       
     }    
     
     public function getClient()
     {
         return $this->client;
+    }
+    
+    public function setUrl( $url ) 
+    {
+        return $this->client->setUrl( $url );
+    }
+    
+    public function setOption( $k, $v )
+    {
+        return $this->client->setOption( $k, $v );
     }
     
     public function get($path, array $parameters = array(), $requestOptions = array()) {
