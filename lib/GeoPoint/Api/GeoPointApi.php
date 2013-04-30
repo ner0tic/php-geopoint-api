@@ -39,6 +39,6 @@ class GeoPointApi extends Client
     }
     
     public function get($path, array $parameters = array(), $requestOptions = array()) {
-        return parent::get( 'ipinfo/' . $path, $parameters, $requestOptions);
+        return $this->client->get( 'ipinfo/' . $path, $parameters, $requestOptions);
     }
 }
