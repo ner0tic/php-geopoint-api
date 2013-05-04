@@ -39,8 +39,8 @@ class GeoPointApi extends AbstractApi
         return $this->client->setOption( $k, $v );
     }
     
-    public function get($path, array $params = array(), $requestOptions = array()) {
-        return $this->client->get( 'ipinfo/' . $path, $params, $requestOptions);
+    public function get($path, array $params = array(), $requestOpts = array()) {
+        return $this->client->get( 'ipinfo/' . $path, $params, $requestOpts);
     }
     
     public function api( $api )

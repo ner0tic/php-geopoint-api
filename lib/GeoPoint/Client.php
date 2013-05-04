@@ -111,16 +111,16 @@ class Client extends BaseClient
      * @param array $requestOptions
      * @return type
      */
-    public function get( $path, array $parameters = array(), $requestOptions = array() )
+    public function get( $path, array $params = array(), $requestOpts = array() )
     {
-        $parameters = array_merge( 
-                $parameters,
+        $params = array_merge( 
+                $params,
                 array(
                     'format'    =>  'json',
                     'sig'       =>  $this->generateSig(),
                     'apikey'    =>  $this->getApiKey()
         ) );
         
-        return parent::get( $path, $parameters, $requestOptions );
+        return parent::get( $path, $params, $requestOpts );
     }
 }
