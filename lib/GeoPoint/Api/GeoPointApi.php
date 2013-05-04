@@ -1,15 +1,16 @@
 <?php
 namespace GeoPoint\Api;
 
-use GeoPoint\Client;
+use Core\Api\AbstractApi,
+    GeoPoint\Client;
 
-class GeoPointApi extends Client
+class GeoPointApi extends AbstractApi
 {
     /**
      *
      * @var GeoPoint\Client $client 
      */
-    protected $client = null;
+    protected $client;
     
     /**
      * 
@@ -19,8 +20,8 @@ class GeoPointApi extends Client
     {
         $this->client = $client instanceof Client ? $client : new Client();
 
-        $this->setUrl( ':protocol://api.neustar.biz/ipi/std/v1/:path' );
-        $this->setOption( 'protocol', 'http' );                       
+        $this->setUrl( 'http://api.neustar.biz/ipi/std/v1/:path' );
+                              
     }    
     
     public function getClient()
@@ -40,5 +41,10 @@ class GeoPointApi extends Client
     
     public function get($path, array $parameters = array(), $requestOptions = array()) {
         return $this->client->get( 'ipinfo/' . $path, $parameters, $requestOptions);
+    }
+    
+    public function api( $api )
+    {
+        return $this->client->api( $api );
     }
 }
