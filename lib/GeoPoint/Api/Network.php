@@ -1,8 +1,8 @@
 <?php
     namespace GeoPoint\Api;
-    
-    use GeoPoint\Client;
-    
-    class Network extends Client {
-        
+
+use GeoPoint\Client;
+
+    class Network extends Client
+    {
     }
