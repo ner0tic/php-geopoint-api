@@ -7,67 +7,67 @@ class Client extends BaseClient
 {
     /**
      *
-     * @var string $key 
+     * @var string $key
      */
     protected $key;
     
     /**
      *
-     * @var string $secret 
+     * @var string $secret
      */
     protected $secret;
     
     /**
-     * 
+     *
      * @param string $name
      * @return GeoPoint\Api
      */
-    public function api( $name )
+    public function api($name)
     {
-        if( !isset( $this->apis[ $name ] ) )
-        {
-            switch( $name )
-            {
+        if (!isset($this->apis[ $name ])) {
+            switch ($name) {
                 case 'location':
                 case 'Location':
-                    $api = new Api\Location( $this );
+                    $api = new Api\Location($this);
                     break;
                 case 'network':
                 case 'Network':
-                    $api = new Api\Network( $this );
+                    $api = new Api\Network($this);
                     break;
                 default:
-                    $api = new Api\IpInfo( $this );
+                    $api = new Api\IpInfo($this);
                     break;
             }
-            $this->apis[ $name ] = $api;            
+            $this->apis[ $name ] = $api;
         }
         
         return $this->apis[ $name ];
     }
     
     /**
-     * 
+     *
      * @return string
      * @throws \Exception missing login
      * @throws \Exception missing secret
      */
     private function generateSig()
     {
-        if( is_null( $this->getApiKey() ) )
-            throw new \Exception( 'Must supply an api key' );
-        if( is_null( $this->getSecret() ) )
-            throw new \Exception ( 'Must supply an api secret' );
+        if (is_null($this->getApiKey())) {
+            throw new \Exception('Must supply an api key');
+        }
+        if (is_null($this->getSecret())) {
+            throw new \Exception('Must supply an api secret');
+        }
         
-        return md5( $this->getApiKey() . $this->getSecret() . gmdate( 'U' ) );
+        return md5($this->getApiKey() . $this->getSecret() . gmdate('U'));
     }
     
     /**
-     * 
+     *
      * @param string $key
      * @return \GeoPoint\Client
      */
-    public function setApiKey( $key )
+    public function setApiKey($key)
     {
         $this->key = $key;
         
@@ -75,7 +75,7 @@ class Client extends BaseClient
     }
     
     /**
-     * 
+     *
      * @return string $key
      */
     public function getApiKey()
@@ -84,11 +84,11 @@ class Client extends BaseClient
     }
     
     /**
-     * 
+     *
      * @param string $secret
      * @return \GeoPoint\Client
      */
-    public function setSecret( $secret )
+    public function setSecret($secret)
     {
         $this->secret = $secret;
         
@@ -96,7 +96,7 @@ class Client extends BaseClient
     }
     
     /**
-     * 
+     *
      * @return string
      */
     public function getSecret()
@@ -105,22 +105,22 @@ class Client extends BaseClient
     }
     
     /**
-     * 
+     *
      * @param string $path
      * @param array $parameters
      * @param array $requestOptions
      * @return type
      */
-    public function get( $path, array $params = array(), $requestOpts = array() )
+    public function get($path, array $params = array(), $requestOpts = array())
     {
-        $params = array_merge( 
+        $params = array_merge(
                 $params,
                 array(
                     'format'    =>  'json',
                     'sig'       =>  $this->generateSig(),
                     'apikey'    =>  $this->getApiKey()
-        ) );
+        ));
         
-        return parent::get( $path, $params, $requestOpts );
+        return parent::get($path, $params, $requestOpts);
     }
 }
